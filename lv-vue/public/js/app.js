@@ -48939,10 +48939,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+__WEBPACK_IMPORTED_MODULE_2_moment___default.a.lang('pt-BR');
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            ideas: []
+            ideas: [],
+            newIdea: ''
         };
     },
 
@@ -48959,6 +48962,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var urlIdeas = 'mis-ideas';
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(urlIdeas).then(function (response) {
                 _this.ideas = response.data;
+            });
+        },
+        createIdea: function createIdea() {
+            var _this2 = this;
+
+            var url = 'guardar-idea';
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(url, {
+                description: this.newIdea
+            }).then(function (response) {
+                _this2.getIdeas();
+                _this2.newIdea = '';
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.success('Ideia registrada');
+            }).catch(function (error) {
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error('Erro');
             });
         }
     }
@@ -48979,7 +48996,44 @@ var render = function() {
     _c("div", { staticClass: "well" }, [
       _c("h4", [_vm._v("No que está pensando?")]),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.createIdea($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "input-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newIdea,
+                  expression: "newIdea"
+                }
+              ],
+              staticClass: "form-control input-sm",
+              attrs: { type: "text", name: "", name: "", maxlength: "256" },
+              domProps: { value: _vm.newIdea },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newIdea = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -49010,24 +49064,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", [
-      _c("div", { staticClass: "input-group" }, [
-        _c("input", {
-          staticClass: "form-control input-sm",
-          attrs: { type: "text", name: "", name: "", maxlength: "256" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "input-group-btn" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-sm",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Adicionar")]
-          )
-        ])
-      ])
+    return _c("span", { staticClass: "input-group-btn" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary btn-sm", attrs: { type: "submit" } },
+        [_vm._v("Adicionar")]
+      )
     ])
   }
 ]
@@ -49166,7 +49208,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
