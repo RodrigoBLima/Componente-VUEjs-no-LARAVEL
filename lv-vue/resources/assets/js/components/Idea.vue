@@ -1,6 +1,6 @@
 <template>
-    <div class="">
-<h2 class="text-center">Escreva suas Ideias</h2>
+    <div>
+        <h2 class="text-center">Escreva suas Ideias</h2>
         <div class="well">
             <h4>No que está pensando?</h4>
             <form v-on:submit.prevent="createIdea">
@@ -22,7 +22,7 @@
                 </li>
             </ul>
             
-        </div>
+          </div>
         </div>
 </template>
 
@@ -31,7 +31,7 @@
     import toastr from 'toastr'
     import moment from 'moment'
 
-    moment.lang('pt-BR');
+    moment.locale('pt-BR');
 
     export default {
         data(){

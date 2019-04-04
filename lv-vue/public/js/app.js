@@ -48939,7 +48939,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_2_moment___default.a.lang('pt-BR');
+__WEBPACK_IMPORTED_MODULE_2_moment___default.a.locale('pt-BR');
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -48990,7 +48990,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
+  return _c("div", [
     _c("h2", { staticClass: "text-center" }, [_vm._v("Escreva suas Ideias")]),
     _vm._v(" "),
     _c("div", { staticClass: "well" }, [
@@ -49047,9 +49047,9 @@ var render = function() {
                 _c("em", [_vm._v(_vm._s(_vm.since(idea.created_at)))])
               ]),
               _vm._v(
-                "\n                        " +
+                "\n                    " +
                   _vm._s(idea.description) +
-                  "\n                    "
+                  "\n                "
               )
             ])
           ])
